@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         groundedPlayer = controller.isGrounded;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             gameObject.transform.forward = move;
         }
 
-        // Changes the height position of the player..
+        // Changes the height position of the player.. 
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);

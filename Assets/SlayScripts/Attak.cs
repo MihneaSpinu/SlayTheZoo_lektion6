@@ -8,24 +8,32 @@ public class Attak : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody rb;
     private Vector3 movement;
+    public Transform objectToLookAt;
 
     // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
         rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
+        if (Player == null)
+        {
+            return;
+        }
         Vector3 direction = Player.position - transform.position;
-        //float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
-        direction.Normalize();
-        movement = direction;
+        transform.LookAt(Player);
+        direction.Normalize(); 
+        movement = direction; 
     }
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         moveCharacter(movement);
     }
-    void moveCharacter(Vector3 direction){
+    void moveCharacter(Vector3 direction)
+    {
         rb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 }
