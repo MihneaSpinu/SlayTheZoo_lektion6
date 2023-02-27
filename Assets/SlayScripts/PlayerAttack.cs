@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
     {
         attackArea = transform.GetChild(0).gameObject;
     }
-
+ 
     // Update is called once per frame
     void Update()
     {

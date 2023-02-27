@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attak : MonoBehaviour
+public class EnemyAttak : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
     public float moveSpeed = 5f;
     private Rigidbody rb;
     private Vector3 movement;
@@ -14,6 +14,7 @@ public class Attak : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        Player = FindObjectOfType<Player>().gameObject;
     }
 
     // Update is called once per frame
@@ -23,8 +24,8 @@ public class Attak : MonoBehaviour
         {
             return;
         }
-        Vector3 direction = Player.position - transform.position;
-        transform.LookAt(Player);
+        Vector3 direction = Player.transform.position - transform.position;
+        transform.LookAt(Player.transform);
         direction.Normalize(); 
         movement = direction; 
     }
