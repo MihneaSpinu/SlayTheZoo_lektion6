@@ -8,6 +8,7 @@ private void OnTriggerEnter(Collider other)
     { 
         if(other.gameObject.CompareTag("obstacle")) 
         { 
+            FindObjectOfType<EnemySpawner>().isSpawning = false;
             Destroy(gameObject); 
         } 
     } 
