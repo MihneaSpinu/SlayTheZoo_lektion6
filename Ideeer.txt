@@ -1,0 +1,10 @@
+- start screen 
+- end screen
+- victory screen
+- stop spawner
+- gun 
+- xp
+- mor enemy over time
+- stronger enemy
+- garlic
+
