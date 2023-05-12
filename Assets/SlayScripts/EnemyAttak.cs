@@ -22,17 +22,20 @@ public class EnemyAttak : MonoBehaviour
     {
         if (Player == null)
         {
-            return;
+            Destroy(gameObject);
         }
+
         Vector3 direction = Player.transform.position - transform.position;
         transform.LookAt(Player.transform);
-        direction.Normalize(); 
-        movement = direction; 
+        direction.Normalize();
+        movement = direction;
     }
+
     private void FixedUpdate()
     {
         moveCharacter(movement);
     }
+    
     void moveCharacter(Vector3 direction)
     {
         rb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
