@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Slay the Zoo/Main Menu.unity
+    guid: 8d9c25971c5d732419174be0dd426504
+  - enabled: 1
+    path: Assets/Slay the Zoo/Copy the zoo.unity
+    guid: d0d0411332e98254d8cefc8a2db7320f
+  - enabled: 1
+    path: Assets/Slay the Zoo/Game Over.unity
+    guid: 04aae8093ee25974181985f2d99d6b50
   m_configObjects: {}
