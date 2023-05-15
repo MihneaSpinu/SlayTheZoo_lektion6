@@ -1,24 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class XpScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class XPSystem : MonoBehaviour {
+
+    public int xp = 0;
+    public int level = 1;
+    public int xpToLevelUp = 100;
+
+    void Start () {
+        xp = PlayerPrefs.GetInt("xp", 0);
+        level = PlayerPrefs.GetInt("level", 1);
+        xpToLevelUp = PlayerPrefs.GetInt("xpToLevelUp", 100);
     }
 
-    public class Health
+    void AddXP(int amount) {
+        xp += amount;
+        if (xp >= xpToLevelUp) {
+            LevelUp();
+        }
+    }
 
-    public event EventHandler  
+    void LevelUp() {
+        level++;
+        xp -= xpToLevelUp;
+        xpToLevelUp = Mathf.RoundToInt(xpToLevelUp * 1.5f);
+    }
 
-    public LevelSystem levelSystem;
+    void SavePlayerPrefs() {
+        PlayerPrefs.SetInt("xp", xp);
+        PlayerPrefs.SetInt("level", level);
+        PlayerPrefs.SetInt("xpToLevelUp", xpToLevelUp);
+    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if ( Health <= 0)
+    void OnDestroy() {
+        SavePlayerPrefs();
     }
 }
